@@ -1,2 +1,8 @@
-# cc-linux-android
-linux、android、cc
+
+static int __init lee_init(void)
+{
+  return 0;
+}
+
+
+
