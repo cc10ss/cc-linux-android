@@ -1,0 +1,22 @@
+static void evdev_event(struct input_handle * handle,unsigned int type,unsigned int code,int value)
+{
+  	struct evdev * evdev = handle->private; 
+}
+
+第3行: struct evdev * evdev = handle->private; 
+			 那么这个evdev是在什么时候赋值给handle->private的呢?
+			 看 evdev_connect()这个函数
+			 static int evdev_connect(struct input_handler *handler, struct input_dev *dev,const struct input_device_id *id)
+			 {
+			 		struct evdev * evdev;
+			 		int minor;
+			 		int error;
+			 		
+			 		for(minor = 0;minor = EVDEV_MINORS;minor++)
+			 		{
+			 			if(!evdev_table[minor])
+			 			{
+			 					break;
+			 			}
+			 		}
+			 }
